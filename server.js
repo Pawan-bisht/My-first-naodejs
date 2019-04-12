@@ -268,7 +268,7 @@ app.get('/cart/:userid',function(req,res){
   let userId = req.params.userid;
    res.sendFile(__dirname+"/public/cart.html");
 })
-  
+  const PORT = process.env.PORT||8989;
 db.sync({force:true}).then(()=>{
     console.log("sync success");
      Vendor.create({name:"Samsung"});
@@ -285,7 +285,7 @@ db.sync({force:true}).then(()=>{
      Cart.create({ProductId:2,UserId:1,Quantity:20});
      Cart.create({ProductId:2,UserId:4,Quantity:20});
      Cart.create({ProductId:2,UserId:3,Quantity:20});
-     app.listen(8989,function(){
+     app.listen(PORT,function(){
         console.log("server is listening");
     })
   })
